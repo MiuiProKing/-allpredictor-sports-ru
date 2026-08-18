@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #161616;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .content {
+            text-align: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            box-sizing: border-box;
+            flex: 1;
+            margin: 0 auto;
+            display: none; /* Masquer le contenu initialement */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            padding: 10px 0;
+            background-color: transparent;
+        }
+
+        .header-title {
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .header img {
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #161616;
+            outline: solid 1px #2b9962;
+            box-shadow: 0px 15px 60px #00ff7f;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .bottom-menu {
+            display: flex;
+            justify-content: space-around;
+            background-color: #161616;
+            border: solid 2px #00ff7f;
+            border-radius: 30px;
+            padding: 10px 20px;
+            box-shadow: 0px -15px 60px #00ff7f;
+            width: calc(100% - 40px);
+            max-width: 310px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .bottom-menu a {
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            font-size: 14px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bottom-menu a .icon {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        /* Style de l'écran de chargement avec le GIF */
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #161616;
+            height: 100vh;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+
+        .loader img {
+            width: 200px; /* Ajustez la taille selon vos besoins */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Écran de chargement avec GIF -->
+    <div class="loader">
+        <img src="https://media3.giphy.com/media/a2gFqkXefPvooVN5C5/giphy.gif?cid=6c09b9525bqsvg2hl53cxuv9u1jap7o4f057wqw10v6ogplk&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s" alt="Chargement..."> <!-- Remplacez l'URL par celle du GIF de Lucky Jet -->
+    </div>
+
+    <div class="content">
+        <div class="header">
+            <div class="header-title">1win Game</div>
+            <img src="https://i.ibb.co/QCsDWY7/IMG-1378.png" alt="Manette de jeu">
+        </div>
+
+        <div class="container">
+            <div class="card" onclick="navigateTo('lucky-jet.html')">
+                <img src="https://i.ibb.co/KzTN6v1/IMG-1373.jpg/300x200" alt="Image 1">
+            </div>
+            <div class="card" onclick="navigateTo('indisponible.html')">
+                <img src="https://i.ibb.co/fdzJYRc/IMG-1372.jpg" alt="Image 2">
+            </div>
+            <div class="card" onclick="navigateTo('indisponible.html')">
+                <img src="https://i.ibb.co/k0PLKgr/IMG-1374.webp/300x200" alt="Image 3">
+            </div>
+            <div class="card" onclick="navigateTo('crash-1win.html')">
+                <img src="https://i.ibb.co/pxjrXtD/IMG-1383.jpg/300x200" alt="Image 4">
+            </div>
+            <div class="card" onclick="navigateTo('indisponible.html')">
+                <img src="https://i.ibb.co/tpmGx5K/IMG-1396.webp/300x200" alt="Image 5">
+            </div>
+            <div class="card" onclick="navigateTo('indisponible.html')">
+                <img src="https://i.ibb.co/xYx5dPq/IMG-1312.png/300x200" alt="Image 6">
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom-menu">
+        <a href="games.html">
+            <span class="icon">🎮</span>
+            Jeux
+        </a>
+        <a href="profil.html">
+            <span class="icon">👤</span>
+            Compte
+        </a>
+        <a href="https://t.me/yannprognos">
+            <span class="icon">📡</span>
+            Canal
+        </a>
+        <a href="https://t.me/lastarsey">
+            <span class="icon">✈️</span>
+            Telegram
+        </a>
+    </div>
+    babel hack
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        // Attend 10 secondes avant de masquer le GIF de chargement et afficher le contenu
+        setTimeout(function() {
+            document.querySelector('.loader').style.display = 'none';
+            document.querySelector('.content').style.display = 'block';
+        }, 10000); // 10000ms = 10 secondes
+    </script>
+</body>
+</html>
