@@ -1,0 +1,236 @@
+ALLPREDICTOR / BABELSE PUBLIC HISTORY RECOVERY
+Дата проверки: 2026-08-18
+Цель: собрать публичные исходники, историю GitHub и проверить следы LuckyJet/Telegram bot-кода.
+
+ВАЖНО
+- В пакет включены только публично доступные исходники и ранее подготовленный безопасный архив пользовательских файлов.
+- Секреты/API-токены из найденных публичных репозиториев в отчёт не копировались.
+- Приватные файлы чужих аккаунтов не извлекались.
+
+============================================================
+1. BABELSE / СТАРЫЙ LUCKY JET V6
+============================================================
+
+Автор:
+https://github.com/babelse
+
+Репозиторий:
+https://github.com/babelse/babelse.github.com
+
+Текущие файлы:
+https://github.com/babelse/babelse.github.com/blob/main/lucky-jet.html
+https://github.com/babelse/babelse.github.com/blob/main/crash-1win.html
+https://github.com/babelse/babelse.github.com/blob/main/Game.html
+https://github.com/babelse/babelse.github.com/blob/main/profil.html
+https://github.com/babelse/babelse.github.com/blob/main/index.html
+https://github.com/babelse/babelse.github.com/blob/main/indisponible.html
+
+RAW:
+https://raw.githubusercontent.com/babelse/babelse.github.com/main/lucky-jet.html
+https://raw.githubusercontent.com/babelse/babelse.github.com/main/crash-1win.html
+https://raw.githubusercontent.com/babelse/babelse.github.com/main/Game.html
+https://raw.githubusercontent.com/babelse/babelse.github.com/main/profil.html
+https://raw.githubusercontent.com/babelse/babelse.github.com/main/index.html
+https://raw.githubusercontent.com/babelse/babelse.github.com/main/indisponible.html
+
+Первый найденный commit:
+https://github.com/babelse/babelse.github.com/commit/78f33d3318a5ae46aa660c435499a7d00c47d577
+
+Дерево первого commit содержит РОВНО 6 файлов:
+Game.html
+crash-1win.html
+index.html
+indisponible.html
+lucky-jet.html
+profil.html
+
+В этом первом commit нет .py и нет отдельных .js.
+
+История index.html:
+1) 2024-08-16 02:17:58 UTC
+commit 78f33d3318a5ae46aa660c435499a7d00c47d577
+переход после входа -> accueil.html
+https://github.com/babelse/babelse.github.com/blob/78f33d3318a5ae46aa660c435499a7d00c47d577/index.html
+
+2) 2024-08-16 02:24:04 UTC
+commit 0b918efa8693c7b54ed8eba8d7e2234cf24f7bc9
+переход -> game.html
+https://github.com/babelse/babelse.github.com/blob/0b918efa8693c7b54ed8eba8d7e2234cf24f7bc9/index.html
+
+3) 2024-08-16 02:30:52 UTC
+commit a6e38dc98cc5be2ee3bf9d514df4e02f704f2a91
+переход -> Game.html
+https://github.com/babelse/babelse.github.com/blob/a6e38dc98cc5be2ee3bf9d514df4e02f704f2a91/index.html
+
+В каталоге history/ лежат все 3 восстановленные версии index.html.
+
+============================================================
+2. AKIMIJAMIL-ENG — ВСЕ ПУБЛИЧНЫЕ REPO НА МОМЕНТ ПРОВЕРКИ
+============================================================
+
+Профиль:
+https://github.com/akimijamil-eng
+
+Публичные репозитории, найденные GitHub Search:
+1. https://github.com/akimijamil-eng/luckyjet-api
+2. https://github.com/akimijamil-eng/fomesoutrababel
+3. https://github.com/akimijamil-eng/allpredictor-wa-manager
+4. https://github.com/akimijamil-eng/babellog
+5. https://github.com/akimijamil-eng/AllPredictor-sites-manager
+
+Удалённый/непубличный след:
+https://github.com/akimijamil-eng/allpredictor-nouveau
+
+Старые ссылки SDK, которые ранее были указаны dashboard AllPredictor:
+https://raw.githubusercontent.com/akimijamil-eng/allpredictor-nouveau/main/sdk/allpredictor_monetize.py
+https://raw.githubusercontent.com/akimijamil-eng/allpredictor-nouveau/main/sdk/allpredictor-monetize.js
+
+На момент проверки публичная копия allpredictor-nouveau через GitHub Search не найдена.
+
+============================================================
+3. LUCKYJET-API
+============================================================
+
+Repo:
+https://github.com/akimijamil-eng/luckyjet-api
+
+Самый ранний найденный commit с server.js:
+https://github.com/akimijamil-eng/luckyjet-api/commit/7f3dd760d7c1a81f68ed16a8e649105604dc0324
+
+Текущий server.js:
+https://github.com/akimijamil-eng/luckyjet-api/blob/main/server.js
+
+Сравнение первого commit с текущим:
+- server.js не был заменён найденным bot.py;
+- между ними в репозиторий в основном добавлялись изображения/ассеты;
+- удалённого Telegram .py в этой линии истории не обнаружено.
+
+============================================================
+4. ALLPREDICTOR WHATSAPP BOT MANAGER
+============================================================
+
+Akimijamil:
+https://github.com/akimijamil-eng/allpredictor-wa-manager
+
+Babelse:
+https://github.com/babelse/allpredictor-wa-manager
+
+Akimijamil первая server.js:
+https://github.com/akimijamil-eng/allpredictor-wa-manager/commit/490bf9b19760c4f71a3995b0947449d5b6f62155
+
+Babelse первый найденный upload:
+https://github.com/babelse/allpredictor-wa-manager/commit/f4158aae0c3a38fc5161eab4263c71f2b2596819
+
+У Babelse в ранней истории код сначала находился в:
+allpredictor-wa-manager-main/server.js
+allpredictor-wa-manager-main/package.json
+allpredictor-wa-manager-main/Dockerfile
+
+Позже файлы были перенесены/переименованы в корень:
+server.js
+package.json
+Dockerfile
+
+Менеджер умеет принимать пользовательские .py/.js и запускать их, но сами
+пользовательские загруженные bot-файлы в публичной Git-истории этих repo не найдены.
+
+============================================================
+5. ALLPREDICTOR SITES MANAGER
+============================================================
+
+Repo:
+https://github.com/akimijamil-eng/AllPredictor-sites-manager
+
+Первый server.js:
+https://github.com/akimijamil-eng/AllPredictor-sites-manager/commit/19dacc0a4132c03812ab0af4e89ea317fef4d641
+
+Текущий:
+https://github.com/akimijamil-eng/AllPredictor-sites-manager/blob/main/server.js
+
+Начальное дерево:
+.gitignore
+package.json
+server.js
+
+Позже добавлен server-ds.js и изменялся server.js.
+Публичных .py пользовательских ботов в Git-истории этого repo не найдено.
+
+============================================================
+6. BABELLOG
+============================================================
+
+Babelse:
+https://github.com/babelse/babellog
+
+Akimijamil:
+https://github.com/akimijamil-eng/babellog
+
+В babelse/babellog найден read.text с Flutter/Dart-кодом BabelLOG AI.
+Это не LuckyJet Telegram bot. В публичном файле был обнаружен сторонний API credential;
+он намеренно НЕ скопирован в этот отчёт.
+
+============================================================
+7. ПОИСК @allpredictorkillerbot И ОТПЕЧАТКОВ НАШЕГО analys.py
+============================================================
+
+Проверены публичные repo:
+- akimijamil-eng/luckyjet-api
+- akimijamil-eng/allpredictor-wa-manager
+- akimijamil-eng/babellog
+- akimijamil-eng/AllPredictor-sites-manager
+- babelse/babellog
+- babelse/babelse.github.com
+- babelse/allpredictor-wa-manager
+
+Поиск строки:
+allpredictorkillerbot
+Результат: публичных совпадений в этих repo нет.
+
+Поиск Python Telegram признаков:
+telebot
+api.telegram.org
+Результат: публичных совпадений в этих repo нет.
+
+Проверены уникальные текстовые отпечатки из сохранённого analys.py:
+"Готов искать следующий прогноз. Нажмите кнопку ниже."
+"AUTO сигнал" + "GRAND 10X"
+"RU-UKRAINE EXACT"
+Публичных GitHub-совпадений не найдено.
+
+Это НЕ доказывает, что копии нигде нет: удалённый/private repo,
+неиндексируемый gist, сервер AllPredictor или Telegram-файл могут не быть доступны GitHub Search.
+
+============================================================
+8. ЧТО ВНУТРИ ЭТОГО АРХИВА
+============================================================
+
+babelse.github.com/current/
+- lucky-jet.html
+- crash-1win.html
+- Game.html
+- profil.html
+- index.html
+- indisponible.html
+
+babelse.github.com/history/
+- 3 исторических index.html с тремя переходами:
+  accueil.html -> game.html -> Game.html
+
+reports/
+- этот отчёт
+- SHA/размеры файлов
+
+previous_recovery/
+- предыдущий пакет AllPredictor_FOUND_PACKAGE.zip, если он был доступен в рабочей среде.
+
+============================================================
+9. ЗАМЕТКА ПО ДОКАЗАТЕЛЬСТВАМ
+============================================================
+
+Наличие похожего кода, одинаковых названий или строки "babel hack" само по себе
+не доказывает взлом или авторство. Для доказательства копирования лучше сравнивать:
+- уникальные функции/строки;
+- хеши старых файлов;
+- даты commit;
+- историю Telegram/GitHub;
+- ваши локальные старые версии и резервные копии.
