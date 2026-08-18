@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AllPredictor — проверка старых и новых маршрутов</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#0b0d12;color:#eef2ff;margin:0}
+main{max-width:1100px;margin:auto;padding:24px}
+h1{font-size:28px} h2{margin-top:34px}
+.card{background:#131824;border:1px solid #283149;border-radius:18px;padding:18px;margin:14px 0}
+table{width:100%;border-collapse:collapse;background:#111722;border-radius:14px;overflow:hidden}
+th,td{padding:12px;border-bottom:1px solid #263047;text-align:left;vertical-align:top}
+th{background:#192238;position:sticky;top:0}
+code{color:#8ec5ff;word-break:break-all}
+.ok{color:#7ff0a5} .warn{color:#ffd57a}
+.small{color:#aab5cc;font-size:14px;line-height:1.55}
+@media(max-width:700px){th,td{font-size:13px;padding:9px} main{padding:14px}}
+</style>
+</head>
+<body><main>
+<h1>AllPredictor: старые 54 маршрута vs текущий сайт</h1>
+<div class="card">
+<b>Итог проверки:</b>
+<p class="small">Все 54 пути <code>/sites/...</code> подтверждены как находившиеся в APK AllPredictor 4.4.23.
+На текущем публичном сайте они больше не показываются в поисковой выдаче/навигации.
+Это позволяет уверенно считать их legacy-маршрутами, но отсутствие индексации само по себе не доказывает HTTP 404 для каждого адреса.
+Сам AllPredictor прямо сообщает на текущем <code>/luckyjet</code>, что старая функция больше недоступна и платформа переключена на хостинг ботов и сайтов.</p>
+</div>
+
+<h2>Текущие публичные страницы</h2>
+<table><tr><th>Маршрут</th><th>Что сейчас</th></tr>
+<tr><td><code>/</code></td><td>Новая главная: хостинг ботов, Workers и сайтов</td></tr><tr><td><code>/auth</code></td><td>Авторизация/регистрация</td></tr><tr><td><code>/dashbord</code></td><td>Текущий Dashboard (именно такое написание URL обнаружено)</td></tr><tr><td><code>/doc</code></td><td>Текущая документация Sports API v2</td></tr><tr><td><code>/roadmap</code></td><td>Публичный roadmap</td></tr><tr><td><code>/paiement</code></td><td>Страница оплаты</td></tr><tr><td><code>/luckyjet</code></td><td>Существует, но показывает «Функциональность больше недоступна»</td></tr>
+</table>
+
+<h2>Текущие API-маршруты, найденные в официальном Dashboard/Doc</h2>
+<table><tr><th>Endpoint</th><th>Статус источника</th></tr>
+<tr><td><code>GET /api/v1/luckyjet/predict</code></td><td>Указан в текущем Dashboard</td></tr><tr><td><code>GET /api/v1/luckyjet/coefficients?limit=20</code></td><td>Указан в текущем Dashboard</td></tr><tr><td><code>GET /api/v1/rocketqueen/predict</code></td><td>Указан в текущем Dashboard</td></tr><tr><td><code>POST /api/v1/validate-key</code></td><td>Указан в текущем Dashboard</td></tr><tr><td><code>GET /api/v2/sports/football</code></td><td>Указан в текущей /doc</td></tr><tr><td><code>GET /api/v2/sports/basketball</code></td><td>Указан в текущей /doc</td></tr><tr><td><code>GET /api/v2/sports/{sport}/{id}</code></td><td>Указан в текущей /doc</td></tr>
+</table>
+
+<div class="card">
+<b>Игры, которые всё ещё фигурируют в текущем Dashboard для Webhook:</b>
+<p><code>LuckyJet</code>, <code>RocketQueen</code>, <code>Crash</code>, <code>Astro</code>, <code>MetaCrash</code>, <code>Tropicana</code>.</p>
+<p class="small">Это подтверждает, что названия/события этих игр ещё существуют в новой серверной части, даже если старые HTML/WebView страницы больше не опубликованы как раньше.</p>
+</div>
+
+<h2>Все 54 старых /sites/ маршрута из APK 4.4.23</h2>
+<table>
+<tr><th>Старый путь</th><th>Классификация</th><th>Что удалось подтвердить сейчас</th></tr>
+
+    <tr><td><code>/sites/1917</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/1win-dice</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/1win-mines</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/aero</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/appleoffortune</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/astror</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/aviator</code></td><td>LEGACY / противоречивый статус</td><td>Страница оплаты упоминает Aviator, но текущий roadmap помечает Predictor Aviator как «скоро». Старый /sites/ маршрут не индексируется.</td></tr>
+    <tr><td><code>/sites/aviatrix</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/coin-flip</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/colors</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/crash-royal</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/crash1xbet</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/crasher</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/crashr</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/crashx</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/crime-empire</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/doubles</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/dragon-crash</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/football-freestyle</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/football-mines</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/footballx</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/fortunecrash</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/gems</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/goal</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/goal-mine</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/hilo</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/jetx</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/kamikaz</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/king-thimblesr</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/luckyjet</code></td><td>LEGACY / UI отключён</td><td>На текущем сайте /luckyjet открывает страницу «Функциональность больше недоступна», но Dashboard всё ещё показывает API LuckyJet.</td></tr>
+    <tr><td><code>/sites/madness</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/maestro</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/magic-dice</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/metacrash</code></td><td>LEGACY / имя ещё используется</td><td>MetaCrash присутствует в текущем списке игр для Webhook в Dashboard, но публичная игровая страница не обнаружена.</td></tr>
+    <tr><td><code>/sites/mi-mines</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/mines-blast</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/mines-luva</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/mines-soccer</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/minesbb</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/minesplus</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/minespro</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/minesr</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/penalty</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/penalty-win</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/rocket-dice</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/rocket-queen</code></td><td>LEGACY / API упоминается</td><td>Текущий Dashboard всё ещё документирует Rocket Queen API, но старый /sites/ маршрут не находится в текущем публичном индексе.</td></tr>
+    <tr><td><code>/sites/rocket-x</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/rocketon</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/spacer</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/speedcash</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/thimbles</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/top-eagles</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+    <tr><td><code>/sites/tropicana</code></td><td>LEGACY / имя ещё используется</td><td>Tropicana присутствует в текущем списке игр для Webhook в Dashboard, но публичная игровая страница не обнаружена.</td></tr>
+    <tr><td><code>/sites/turbo-mines</code></td><td>LEGACY / не подтверждён</td><td>Маршрут найден в APK 4.4.23, но не обнаружен в текущем публичном индексе AllPredictor. Это не равнозначно доказанному HTTP 404.</td></tr>
+</table>
+
+<div class="card">
+<b>Что не удалось доказать автоматически:</b>
+<p class="small">Точный HTTP-код каждого неиндексируемого <code>/sites/...</code> адреса (200/301/302/404) не доступен через текущий поисковый краулер. Поэтому в таблице я не называю непроверенный путь «404» только из-за отсутствия в поиске.</p>
+</div>
+</main></body></html>

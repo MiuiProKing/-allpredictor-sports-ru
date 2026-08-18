@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Profil Utilisateur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .profile-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            margin: 20px;
+            margin-top: 20px;
+        }
+
+        .profile-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .profile-container input[type="file"] {
+            display: none;
+        }
+
+        .profile-container label {
+            display: inline-block;
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .profile-container input[type="text"],
+        .profile-container input[type="tel"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+        }
+
+        .profile-container button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .profile-container button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .profile-info {
+            margin-top: 20px;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Mon Profil</h2>
+        <img id="profile-image" src="https://via.placeholder.com/100" alt="Photo de profil">
+        <label for="profile-image-input">Changer de photo</label>
+        <input type="file" id="profile-image-input" accept="image/*">
+
+        <input type="text" id="username" placeholder="Nom d'utilisateur">
+        <input type="tel" id="phone-number" placeholder="Numéro de téléphone">
+        <input type="text" id="city" placeholder="Ville">
+        <input type="text" id="country" placeholder="Pays">
+
+        <button id="save-button">Enregistrer</button>
+
+       <!-- <div class="profile-info" id="profile-info" -->
+            <!-- Informations utilisateur mises à jour affichées ici -->
+        </div>
+    </div>
+
+    <script>
+        const profileImageInput = document.getElementById('profile-image-input');
+        const profileImage = document.getElementById('profile-image');
+        const usernameInput = document.getElementById('username');
+        const phoneNumberInput = document.getElementById('phone-number');
+        const cityInput = document.getElementById('city');
+        const countryInput = document.getElementById('country');
+        const saveButton = document.getElementById('save-button');
+        const profileInfo = document.getElementById('profile-info');
+
+        // Charger les données depuis localStorage
+        function loadProfile() {
+            const savedProfile = JSON.parse(localStorage.getItem('userProfile'));
+            if (savedProfile) {
+                usernameInput.value = savedProfile.username || '';
+                phoneNumberInput.value = savedProfile.phoneNumber || '';
+                cityInput.value = savedProfile.city || '';
+                countryInput.value = savedProfile.country || '';
+                profileImage.src = savedProfile.profileImage || 'https://via.placeholder.com/100';
+                updateProfileInfo();  // Mettre à jour les informations affichées
+            }
+        }
+
+        // Sauvegarder les données dans localStorage
+        function saveProfile() {
+            const userProfile = {
+                username: usernameInput.value,
+                phoneNumber: phoneNumberInput.value,
+                city: cityInput.value,
+                country: countryInput.value,
+                profileImage: profileImage.src
+            };
+            localStorage.setItem('userProfile', JSON.stringify(userProfile));
+            updateProfileInfo();  // Mettre à jour l'affichage après l'enregistrement
+            alert('Profil enregistré avec succès !');
+        }
+
+        // Mise à jour de l'affichage des informations de profil
+        function updateProfileInfo() {
+            profileInfo.innerHTML = `
+                <p><strong>Nom d'utilisateur :</strong> ${usernameInput.value}</p>
+                <p><strong>Numéro de téléphone :</strong> ${phoneNumberInput.value}</p>
+                <p><strong>Ville :</strong> ${cityInput.value}</p>
+                <p><strong>Pays :</strong> ${countryInput.value}</p>
+            `;
+        }
+
+        // Fonction pour gérer l'affichage de l'image de profil
+        profileImageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                profileImage.src = e.target.result;
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Enregistrer le profil lors du clic sur le bouton Enregistrer
+        saveButton.addEventListener('click', saveProfile);
+
+        // Charger les informations de profil à l'ouverture de la page
+        window.onload = loadProfile;
+    </script>
+</body>
+</html>

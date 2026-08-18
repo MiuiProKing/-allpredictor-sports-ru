@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Administrateur</title>
+    <!-- Intégrer FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #loader {
+            width: 50px;
+            height: 50px;
+            border: 6px solid #ffffff;
+            border-top: 6px solid #00FF7F;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #form-ui {
+            display: none;
+        }
+
+        #form {
+            display: grid;
+            place-items: center;
+            width: 300px;
+            height: 472px;
+            padding: 25px;
+            background-color: #161616;
+            box-shadow: 0px 15px 60px #00FF7F;
+            outline: 1px solid #2b9962;
+            border-radius: 10px;
+        }
+
+        #form-body {
+            position: absolute;
+            top: 50%;
+            right: 25px;
+            left: 25px;
+            width: 230px;
+            margin: -156px auto 0 auto;
+        }
+
+        #welcome-lines {
+            text-align: center;
+            line-height: 1;
+        }
+
+        #welcome-line-1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+        }
+
+        #welcome-line-1 img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 30px;
+            border-radius: 50%;
+            border: 2px solid #00FF7F;
+            animation: spin 2s linear infinite;
+        }
+
+        #welcome-line-2 {
+            color: #ffffff;
+            font-size: 18px;
+            margin-top: 17px;
+        }
+
+        #input-area {
+            margin-top: 40px;
+        }
+
+        .form-inp {
+            display: flex;
+            align-items: center;
+            padding: 11px 25px;
+            background: transparent;
+            border: 1px solid #e3e3e3;
+            line-height: 1;
+            border-radius: 8px;
+            color: #00FF7F;
+        }
+
+        .form-inp:focus-within {
+            border: 1px solid #00FF7F;
+        }
+
+        .form-inp:first-child {
+            margin-bottom: 15px;
+        }
+
+        .form-inp input {
+            width: 100%;
+            background: none;
+            font-size: 13.4px;
+            color: #00FF7F;
+            border: none;
+            padding: 0;
+            margin: 0 10px;
+        }
+
+        .form-inp input:focus {
+            outline: none;
+        }
+
+        #submit-button-cvr {
+            margin-top: 20px;
+        }
+
+        #submit-button {
+            display: block;
+            width: 100%;
+            color: #000;
+            background-color: #00FF7F;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 0;
+            padding: 14px 13px 12px 13px;
+            border: 0;
+            outline: 1px solid #00FF7F;
+            border-radius: 8px;
+            line-height: 1;
+            cursor: pointer;
+            transition: all ease-in-out .3s;
+        }
+
+        #submit-button:hover {
+            transition: all ease-in-out .3s;
+            background-color: #00FF7F;
+            color: #161616;
+            cursor: pointer;
+        }
+
+        #forgot-pass {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        #forgot-pass a {
+            color: #868686;
+            font-size: 12px;
+            text-decoration: none;
+        }
+
+        #forgot-pass a span {
+            color: #00FF7F; /* Couleur verte pour Telegram */
+        }
+
+        #bar {
+            position: absolute;
+            left: 50%;
+            bottom: -50px;
+            width: 28px;
+            height: 8px;
+            margin-left: -33px;
+            background-color: #00FF7F;
+            border-radius: 10px;
+        }
+
+        #bar:before,
+        #bar:after {
+            content: "";
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #ececec;
+            border-radius: 50%;
+        }
+
+        #bar:before {
+            right: -20px;
+        }
+
+        #bar:after {
+            right: -38px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loader (Chargement) -->
+    <div id="loader"></div>
+
+    <!-- Formulaire de Connexion (Caché au début) -->
+    <div id="form-ui">
+        <form id="form">
+            <div id="form-body">
+                <div id="welcome-lines">
+                    <div id="welcome-line-1">
+                        <img src="https://i.ibb.co/V9WwwXG/IMG-2230.webp" alt="Admin Image">
+                    </div>
+                    <div id="welcome-line-2">Lucky jet prediction V6</div>
+                </div>
+                <div id="input-area">
+                    <div class="form-inp">
+                        <i class="fas fa-user"></i>
+                        <input placeholder="Nom d'utilisateur" type="text" id="username">
+                    </div>
+                    <div class="form-inp">
+                        <i class="fas fa-lock"></i>
+                        <input placeholder="Mot de passe" type="password" id="password">
+                    </div>
+                </div>
+                <div id="submit-button-cvr">
+                    <button id="submit-button" type="button">Se connecter</button>
+                </div>
+                <div id="forgot-pass">
+                    <a href="https://t.me/lastarsey" target="_blank">
+                        Me contacter sur <span>Telegram</span>
+                    </a>
+                </div>
+                <div id="bar"></div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Afficher le formulaire après 30 secondes
+        setTimeout(function() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('form-ui').style.display = 'block';
+        }, 30000);
+
+        // Fonctionnalité de connexion
+        document.getElementById('submit-button').addEventListener('click', function() {
+            const correctUsername = "admin";
+            const correctPassword = "admin123";
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === correctUsername && password === correctPassword) {
+                alert("Connexion réussie !");
+                window.location.href = "accueil.html";
+            } else {
+                alert("Nom d'utilisateur ou mot de passe incorrect.");
+            }
+        });
+    </script>
+
+</body>
+</html>

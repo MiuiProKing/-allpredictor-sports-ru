@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non Disponible</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #161616;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        #message {
+            font-size: 36px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<div id="message">NON DISPONIBLE POUR LE MOMENT</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Afficher le message avec une animation de fondu
+        const message = document.getElementById("message");
+        setTimeout(() => {
+            message.style.opacity = 1;
+        }, 500);
+    });
+</script>
+
+</body>
+</html>
