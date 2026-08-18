@@ -1,0 +1,44 @@
+Game.html
+  bytes=5919
+  sha256=5dc1e0d90b9a11a39f2a0b7cf8098dfa59ba6359c43aa55d5be0853504fd68fd
+  git_blob_sha=5051df6098a497e737819cbede3feae543c86746
+
+crash-1win.html
+  bytes=11576
+  sha256=b35c98274a466d79ced69b5dea2f281e445eb4d45212209423ec93effed542c6
+  git_blob_sha=43cea8a4acf6416fec217633a08a09083ba45de4
+
+index.html
+  bytes=7206
+  sha256=5110f6968617c3eaa9584ef0e531ac9d87b61de92cbfcb1c047798878429d454
+  git_blob_sha=ee173dc753d6a4b9355e6a0e1abb5ad31a499fe8
+
+indisponible.html
+  bytes=1055
+  sha256=22fc68684ee020ed3af2205c5182fdf05b31efee7f628c42426d305b1daa163b
+  git_blob_sha=1aa0be84e9509848bfb989d6fffdabe53f22a2ff
+
+lucky-jet.html
+  bytes=10803
+  sha256=3020475c9b7d890e4a09b69be21c16b6721b0790a7d9504c83fcca397820ee3d
+  git_blob_sha=3750a031a0b3b9fde32ab2db7311272806b62f08
+
+profil.html
+  bytes=5952
+  sha256=d45c3e114c3b299c8be671951fd3806bf2f50fb8abb75d40147cfda29560d509
+  git_blob_sha=40a65bca0dca13735b54fa8caad05f98eb6c2a33
+
+index_2024-08-16_02-17-58_commit_78f33d3_accueil.html
+  bytes=7209
+  sha256=024f14a0d7b532d43d9b4ba358eaa52887a4a87d448e864ce6c35befa4bbd645
+  git_blob_sha=ac0b8a362ed9ba7f74a85af7e6fa28da9b197f86
+
+index_2024-08-16_02-24-04_commit_0b918ef_game-lowercase.html
+  bytes=7206
+  sha256=87367b621afcc39411b92248e03940dd651da55d3083fa5765df3bda927d3bf0
+  git_blob_sha=c45a14e2871e62f526c80b730bf771c0e0d53e43
+
+index_2024-08-16_02-30-52_commit_a6e38dc_Game-capital.html
+  bytes=7206
+  sha256=5110f6968617c3eaa9584ef0e531ac9d87b61de92cbfcb1c047798878429d454
+  git_blob_sha=ee173dc753d6a4b9355e6a0e1abb5ad31a499fe8
