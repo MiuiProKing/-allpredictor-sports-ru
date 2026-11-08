@@ -1,0 +1,123 @@
+/* GOD VIP — AMOLED ULTRA VIVID | shared website theme v20261108
+   Shared visual layer for our hosted websites; no data or prediction changes.
+   Значения по умолчанию повторяют внешний эффект исходного CSS.
+   Для изменения оформления редактируй только этот блок :root.
+*/
+:root {
+  color-scheme: dark !important;
+
+  --vip-background: #000;
+  --vip-text: #f9f8ff;
+
+  /* 1 = исходное изображение. 1.85 = усиленная насыщенность. */
+  --vip-saturation: 1.85;
+  --vip-contrast: 1.18;
+  --vip-brightness: 1.10;
+
+  /* Последнее число rgba — прозрачность: 0 выключает туман. */
+  --vip-haze: rgba(111, 20, 210, .12);
+
+  /* Подсветка карточек: радиусы и цвет с прозрачностью. */
+  --vip-card-radius: 12px;
+  --vip-card-glow: rgba(125, 55, 255, .20);
+  --vip-inset-radius: 8px;
+  --vip-inset-glow: rgba(125, 55, 255, .055);
+
+  /* Неоновая подсветка использует цвет текста самого элемента. */
+  --vip-neon-radius: 6px;
+  --vip-neon-saturation: 1.6;
+
+  --vip-focus: #a85cff;
+  --vip-focus-width: 2px;
+  --vip-focus-offset: 2px;
+  --vip-selection: #8632ff;
+  --vip-selection-text: white;
+}
+
+html { background: var(--vip-background) !important; }
+body {
+  background: var(--vip-background) !important;
+  color: var(--vip-text) !important;
+}
+
+/* Лёгкая фиолетовая дымка над страницей; нажатия проходят сквозь неё. */
+body::before {
+  content: "";
+  transform: none !important;
+  animation: none !important;
+  opacity: 1 !important;
+  filter: none !important;
+  background-size: auto !important;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483640;
+  background: radial-gradient(ellipse 90% 35% at 50% -15%, var(--vip-haze), transparent 80%);
+}
+
+/* Filter visual leaves, never application roots: fixed menus stay viewport-bound. */
+:is(canvas, .card-art, .hero-image, .tile-art img, .game-icon, .card-icon,
+  .coefficient, .chip > b, .chip > strong, .live-number, #multiplier, #signalGoal, #pred, #signal) {
+  filter: saturate(var(--vip-saturation)) contrast(var(--vip-contrast)) brightness(var(--vip-brightness));
+}
+
+:is(.card, .panel, .modal, .game-card, .pro-card, .live-panel, .version-row, .hero, .box,
+  .glass, .stat-card, .stats-card, .metric, .data-card, .table-wrap, .history-panel,
+  .settings-panel, .signal-card, .prediction-card, .profile-container) {
+  background-color: #0b0814 !important;
+  color: var(--vip-text) !important;
+  box-shadow: 0 0 var(--vip-card-radius) var(--vip-card-glow),
+    inset 0 0 var(--vip-inset-radius) var(--vip-inset-glow) !important;
+}
+
+:is([class*="glow"], [class*="Glow"], [class*="neon"], [class*="Neon"]):not(.card-glow):not(canvas):not(img):not(svg) {
+  text-shadow: 0 0 var(--vip-neon-radius) currentColor;
+}
+
+:is(button, a, [role="button"]):focus-visible {
+  outline: var(--vip-focus-width) solid var(--vip-focus) !important;
+  outline-offset: var(--vip-focus-offset);
+}
+
+::selection {
+  background: var(--vip-selection);
+  color: var(--vip-selection-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { display: none; }
+}
+
+/* Explicit light surfaces in our existing catalog/profile screens. */
+:is(#root, #__next, #app, .catalog-view, .pro-view) { background-color: var(--vip-background) !important; }
+:is(.catalog-title, .catalog-kicker, .catalog-subtitle, .profile-container h1, .profile-container h2,
+  .profile-container h3, .profile-container p, .profile-container label) { color: var(--vip-text) !important; }
+.profile-container :is(input, select, textarea) { background-color: #130d20 !important; color: var(--vip-text) !important; }
+
+/* 1WIN catalog palettes stay readable with existing light/dark preferences. */
+body[data-catalog-page] {
+  --bg: #000 !important;
+  --card: #0b0814 !important;
+  --ink: #f9f8ff !important;
+  --muted: #b3a9c8 !important;
+  --line: #31253f !important;
+  --header: rgba(5, 3, 10, .96) !important;
+  --hero-grid: #332343 !important;
+  --chip: #20172c !important;
+  --gold: #f1c264 !important;
+  --gold-soft: #30201c !important;
+  --green: #79dba0 !important;
+  --green-soft: #132a23 !important;
+}
+body[data-game] {
+  --game-bg: #000 !important;
+  --game-panel: #0b0814 !important;
+  --game-text: #f9f8ff !important;
+  --game-muted: #b3a9c8 !important;
+  --game-line: rgba(201, 173, 255, .16) !important;
+  --game-surface: #20172c !important;
+  --game-glow: rgba(125, 55, 255, .17) !important;
+}
+
+/* Neutralize older page-wide filters so fixed controls retain viewport coordinates. */
+body > :is(#root, #__next, #app, main) { filter: none !important; }
