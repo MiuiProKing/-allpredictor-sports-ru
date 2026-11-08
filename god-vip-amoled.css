@@ -118,3 +118,6 @@ body[data-game] {
   --game-surface: #20172c !important;
   --game-glow: rgba(125, 55, 255, .17) !important;
 }
+
+/* Neutralize older page-wide filters so fixed controls retain viewport coordinates. */
+body > :is(#root, #__next, #app, main) { filter: none !important; }
