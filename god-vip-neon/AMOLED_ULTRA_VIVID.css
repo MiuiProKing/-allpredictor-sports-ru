@@ -1,0 +1,12 @@
+/* GOD VIP — AMOLED ULTRA VIVID | Safari Hyperweb */
+:root {color-scheme:dark!important;--vip-glow:rgba(153,72,255,.48);}
+html {background:#000!important;}
+body {background:#000!important;color:#f9f8ff!important;}
+body::before {content:"";position:fixed;inset:0;pointer-events:none;z-index:2147483640;background:radial-gradient(ellipse 90% 35% at 50% -15%,rgba(111,20,210,.12),transparent 80%);}
+body > :is(#root,#__next,#app,main) {filter:saturate(1.85) contrast(1.18) brightness(1.10);}
+/* Preserve dark panels, deepen surfaces without flattening colorful accents */
+:is([class*="card"],[class*="Card"],[class*="panel"],[class*="Panel"],[class*="modal"],[class*="Modal"]) {box-shadow:0 0 12px rgba(125,55,255,.20),inset 0 0 8px rgba(125,55,255,.055)!important;}
+:is([class*="glow"],[class*="Glow"],[class*="neon"],[class*="Neon"]) {filter:drop-shadow(0 0 6px currentColor) saturate(1.6)!important;}
+:is(button,a,[role="button"]):focus-visible {outline:2px solid #a85cff!important;outline-offset:2px;}
+::selection {background:#8632ff;color:white;}
+@media (prefers-reduced-motion:reduce){body::before{display:none;}}
